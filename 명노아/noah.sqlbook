@@ -1,0 +1,4 @@
+-- SQLBook: Code
+-- Active: 1706681927328@@127.0.0.1@3306@world
+create database population;
+-- SQLBook: Code
