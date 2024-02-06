@@ -1,0 +1,9 @@
+-- SQLBook: Code
+-- Active: 1706681927328@@127.0.0.1@3306@population
+select distinct level from total;
+-- SQLBook: Code
+create view high as select * from total where level = '고등학교 (억원)';
+create view middle as select * from total where level = '중학교 (억원)';
+create view elementary as select * from total where level = '초등학교 (억원)';
+-- SQLBook: Code
+select * from total where category="전체" and level in ("초등학교 (억원)","중학교 (억원)","고등학교 (억원)");

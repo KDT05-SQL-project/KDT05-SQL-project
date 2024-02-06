@@ -1,0 +1,7 @@
+-- SQLBook: Code
+-- Active: 1706681927328@@127.0.0.1@3306@population
+select * from ready;
+-- SQLBook: Code
+create view result as select ready, school, year, number from ready where cotae="예 (%)";
+-- SQLBook: Code
+select ready, school, sum(number) from ready group by school, ready; -- 쓸만한 게 없다

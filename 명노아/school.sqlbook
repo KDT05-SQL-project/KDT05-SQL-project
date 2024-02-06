@@ -1,0 +1,29 @@
+-- SQLBook: Code
+-- Active: 1706681927328@@127.0.0.1@3306@population
+select * from school;
+-- SQLBook: Code
+update school set local=left(local,2) where local like "%광역시";
+update school set local=left(local,2) where local like "%특별시";
+update school set local=left(local,2) where local like "%특별자치시";
+update school set local=left(local,2) where local like "%특별자치도";
+update school set local="전남" where local="전라남도";
+update school set local="경기" where local="경기도";
+update school set local="전북" where local="전라북도";
+update school set local="충북" where local="충청북도";
+update school set local="충남" where local="충청남도";
+update school set local="경남" where local="경상남도";
+update school set local="경북" where local="경상북도";
+-- SQLBook: Code
+select * from (select local, govern, class1, sum(2013년), sum(2014년),sum(2015년),sum(2016년),sum(2017년),sum(2018년),sum(2019년),sum(2020년),sum(2021년),sum(2022년) from school where class1 = "학교수 (개)" group by local, govern) as govern_table where govern="사립";
+-- SQLBook: Code
+# 해당 데이터 중에서 sum(2013년) 데이터가 0인 건 제외
+
+select * from (select local, govern, class1, sum(2013년) as sum_2013, sum(2014년),sum(2015년),sum(2016년),sum(2017년),sum(2018년),sum(2019년),sum(2020년),sum(2021년),sum(2022년) from school where class1 = "학생수 (명)" group by local, govern) as govern_table where govern="사립" and sum_2013 != 0;
+-- SQLBook: Code
+select * from (select local, govern, class1, sum(2013년) as sum_2013, sum(2014년),sum(2015년),sum(2016년),sum(2017년),sum(2018년),sum(2019년),sum(2020년),sum(2021년),sum(2022년) from school where class1 = "학생수 (명)" group by local, govern) as govern_table where govern="공립" and sum_2013 != 0;
+-- SQLBook: Code
+select distinct class2 from school;
+
+select local, class2, sum(2013년), sum(2014년),sum(2015년),sum(2016년),sum(2017년),sum(2018년),sum(2019년),sum(2020년),sum(2021년),sum(2022년)  from school where class2 in ("교원수","직원수") group by local, class2
+
+--sum(2013년) as sum_2013, sum(2014년),sum(2015년),sum(2016년),sum(2017년),sum(2018년),sum(2019년),sum(2020년),sum(2021년),sum(2022년)
