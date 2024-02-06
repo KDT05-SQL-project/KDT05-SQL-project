@@ -1,4 +1,4 @@
-# *KDT-Public_Data_Project*
+# *SQL_Project*
 경북대학교 KDT(Korea Digital Training) 빅데이터 전문가 양성과정 5기 : SQL 프로젝트 2팀입니다
 
 
@@ -22,7 +22,7 @@
 
 
 
-###### 데이터 산업 동향 분석    
+### 인구 감소로 인한 사회 영향 관련 데이터베이스 설계 및 구현    
 * 목차    
 1. 역할분담
 2. 배경
