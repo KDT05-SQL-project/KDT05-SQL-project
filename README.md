@@ -4,7 +4,7 @@
 ## DB
 <img width="1016" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/94469834-8c8c-471b-a1a3-e3abdfb29aa6">
 
-### DB Table 명세서
+## DB Table 명세서
 
 <img width="865" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/e4505950-823b-4431-9561-2f2afd247517">
 <img width="868" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/bf926939-25fd-4ad8-aff7-21f0779bed90">
