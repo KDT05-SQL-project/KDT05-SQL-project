@@ -6,3 +6,8 @@
 
 ### DB Table 명세서
 
+<img width="865" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/e4505950-823b-4431-9561-2f2afd247517">
+<img width="868" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/bf926939-25fd-4ad8-aff7-21f0779bed90">
+<img width="866" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/45e689ed-0d94-4cd5-8d99-5e6017f13aaa">
+
+
