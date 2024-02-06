@@ -1,0 +1,123 @@
+-- SQLBook: Code
+-- Active: 1706681927328@@127.0.0.1@3306@population
+use population
+
+create database population; -- 데이터베이스 생성
+-- SQLBook: Code
+alter table people add constraint primarykey primary key(local, year);
+-- SQLBook: Code
+alter table main add PRIMARY KEY(year) -- 외래키를 연결하기 위해서 year를 기본키로 설정
+-- SQLBook: Code
+alter table people add foreign key (year) -- 각각의 테이블의 year열을 main의 year와 함께 외래키로 지정
+REFERENCES main(year);
+alter table highschool add foreign key (year)
+REFERENCES main(year);
+
+alter table participants add foreign key (year)
+REFERENCES main(year);
+
+alter table ready add foreign key (year)
+REFERENCES main(year);
+
+alter table school add foreign key (year)
+REFERENCES main(year);
+
+alter table total add foreign key (year)
+REFERENCES main(year);
+-- SQLBook: Code
+-- 나머지 키 기본키로 설정
+alter table ready add constraint primarykey primary key(ready, cotae, school, year);
+-- SQLBook: Code
+alter table participants add constraint primarykey primary key(subject, year, local);
+-- SQLBook: Code
+alter table school add constraint primarykey primary key(local, govern, year, class1, class2, class3);
+-- SQLBook: Code
+select * from ord2; -- 고윳값 확인 후
+alter table ord2 add constraint primarykey primary key(Column1); -- ord2 지방 기본키 설정
+-- SQLBook: Code
+alter table study2 add foreign key (시도별)
+REFERENCES ord2(Column1);
+-- SQLBook: Code
+update mf1 set 시도별=left(시도별,2) where 시도별 like "%광역시";
+update mf1 set 시도별=left(시도별,2) where 시도별 like "%특별시";
+update mf1 set 시도별=left(시도별,2) where 시도별 like "%특별자치시";
+update mf1 set 시도별=left(시도별,2) where 시도별 like "%특별자치도";
+update mf1 set 시도별="전남" where 시도별="전라남도";
+update mf1 set 시도별="경기" where 시도별="경기도";
+
+update mf1 set 시도별="강원" where 시도별="강원도";
+
+update mf1 set 시도별="제주" where 시도별="제주도";
+update mf1 set 시도별="전북" where 시도별="전라북도";
+update mf1 set 시도별="충북" where 시도별="충청북도";
+update mf1 set 시도별="충남" where 시도별="충청남도";
+update mf1 set 시도별="경남" where 시도별="경상남도";
+update mf1 set 시도별="경북" where 시도별="경상북도";
+-- SQLBook: Code
+delete from mf1 where 시도별="세종특별자치시";
+-- SQLBook: Code
+alter table mf1 add foreign key (시도별)
+REFERENCES ord2(Column1);
+-- SQLBook: Code
+select distinct 시도별 from mf1;
+-- SQLBook: Code
+alter table study2 add foreign key (시점)
+REFERENCES main(year);
+-- SQLBook: Code
+delete from school where local="세종";
+
+delete from school where local="총계";
+-- SQLBook: Code
+alter table school add foreign key (local)
+REFERENCES ord2(Column1);
+-- SQLBook: Code
+ALTER TABLE ord2 
+CHANGE COLUMN Column3  ratio_2007 VARCHAR(50);
+Alter table ord2
+CHANGE COLUMN Column5  ratio_2008 VARCHAR(50)
+,CHANGE COLUMN Column7  ratio_2009 VARCHAR(50)
+,CHANGE COLUMN Column9  ratio_2010 VARCHAR(50)
+,CHANGE COLUMN Column11  ratio_2011 VARCHAR(50)
+,CHANGE COLUMN Column13  ratio_2012 VARCHAR(50)
+,CHANGE COLUMN Column15  ratio_2013 VARCHAR(50)
+,CHANGE COLUMN Column17  ratio_2014 VARCHAR(50)
+,CHANGE COLUMN Column19  ratio_2015 VARCHAR(50)
+,CHANGE COLUMN Column21  ratio_2016 VARCHAR(50)
+,CHANGE COLUMN Column23  ratio_2017 VARCHAR(50)
+,CHANGE COLUMN Column25  ratio_2018 VARCHAR(50)
+,CHANGE COLUMN Column27  ratio_2019 VARCHAR(50)
+,CHANGE COLUMN Column29  ratio_2020 VARCHAR(50);
+
+
+-- SQLBook: Code
+alter table makehouse add foreign key (year)
+REFERENCES main(year);
+
+-- SQLBook: Code
+delete from makehouse where locality_id="세종";
+delete from makehouse where locality_id="전국";
+-- SQLBook: Code
+alter table makehouse add foreign key (locality_id)
+REFERENCES ord2(Column1);
+-- SQLBook: Code
+delete from unparcell where locality_id="세종";
+delete from unparcell where locality_id="수도권";
+delete from unparcell where locality_id="전국";
+-- SQLBook: Code
+alter table unparcell add foreign key (year)
+REFERENCES main(year);
+alter table new add foreign key (year)
+REFERENCES main(year);
+
+
+-- SQLBook: Code
+select DISTINCT 시점 from unsold_realestate_year;
+alter table unsold_realestate_year change column 시점 year int;
+select distinct year from main;
+-- SQLBook: Code
+alter table unsold_realestate_year add foreign key (year)
+REFERENCES main(year);
+-- SQLBook: Code
+alter table unsold_house add foreign key (year)
+REFERENCES main(year);
+-- SQLBook: Code

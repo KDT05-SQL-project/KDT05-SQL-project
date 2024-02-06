@@ -1,0 +1,46 @@
+-- SQLBook: Code
+-- Active: 1706681927328@@127.0.0.1@3306@population
+-- 서울 : 서울
+-- 광역시 : 부산, 대구, 대전, 인천, 광주, 울산
+-- 대도시 이외 : 세종, 제주
+-- 중소도시 : 관할 읍/면/동 주민센터에 문의 필요
+-- 읍면지역 : 취급 안함
+
+
+select distinct subject from participants; -- 종류 탐색
+-- SQLBook: Code
+select a.subject, 2013a, 2014a,2015a,2016a,2017a,2018a,2019a,2020a,2021a,2022a  from 
+           (select subject, sum(number) as 2013a from participants where local="서  울 (%)" and year=2013 group by subject) as a
+inner join (select subject, sum(number) as 2014a from participants where local="서  울 (%)" and year=2014 group by subject) as b
+on a.subject=b.subject
+inner join (select subject, sum(number) as 2015a from participants where local="서  울 (%)" and year=2015 group by subject) as c
+on a.subject=c.subject
+inner join (select subject, sum(number) as 2016a from participants where local="서  울 (%)" and year=2016 group by subject) as d
+on a.subject=d.subject
+inner join (select subject, sum(number) as 2017a from participants where local="서  울 (%)" and year=2017 group by subject) as e
+on a.subject=e.subject
+inner join (select subject, sum(number) as 2018a from participants where local="서  울 (%)" and year=2018 group by subject) as f
+on a.subject=f.subject
+inner join (select subject, sum(number) as 2019a from participants where local="서  울 (%)" and year=2019 group by subject) as g
+on a.subject=g.subject
+inner join (select subject, sum(number) as 2020a from participants where local="서  울 (%)" and year=2020 group by subject) as h
+on a.subject=h.subject
+inner join (select subject, sum(number) as 2021a from participants where local="서  울 (%)" and year=2021 group by subject) as i
+on a.subject=i.subject
+inner join (select subject, sum(number) as 2022a from participants where local="서  울 (%)" and year=2022 group by subject) as j
+on a.subject=j.subject; -- 서울의 년도에 따른 사교육 종류 비율 현황
+
+-- SQLBook: Code
+
+-- SQLBook: Code
+-- inner join을 사용하여 subject, local, 2013a,2014a,2015a,...,2022a까지 열을 출력하는 서울, 광역시, 중소도시 별 사교육 참여 비율을 출력
+select a.subject, a.local, 2013a, 2014a, 2015a, 2016a, 2017a, 2018a, 2019a, 2020a, 2021a, 2022a from (select subject, local, sum(number) as 2013a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2013 group by subject,local) as a
+inner join (select subject, local, sum(number) as 2014a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2014 group by subject,local) as b on a.subject=b.subject and a.local=b.local
+inner join (select subject, local, sum(number) as 2015a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2015 group by subject,local) as c on a.subject=c.subject and a.local=c.local
+inner join (select subject, local, sum(number) as 2016a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2016 group by subject,local) as d on a.subject=d.subject and a.local=d.local
+inner join (select subject, local, sum(number) as 2017a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2017 group by subject,local) as e on a.subject=e.subject and a.local=e.local
+inner join (select subject, local, sum(number) as 2018a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2018 group by subject,local) as f on a.subject=f.subject and a.local=f.local
+inner join (select subject, local, sum(number) as 2019a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2019 group by subject,local) as g on a.subject=g.subject and a.local=g.local
+inner join (select subject, local, sum(number) as 2020a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2020 group by subject,local) as h on a.subject=h.subject and a.local=h.local
+inner join (select subject, local, sum(number) as 2021a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2021 group by subject,local) as i on a.subject=i.subject and a.local=i.local
+inner join (select subject, local, sum(number) as 2022a from participants where local in ("서  울 (%)","광역시 (%)","중소도시 (%)") and year=2022 group by subject,local) as j on a.subject=j.subject and a.local=j.local;
