@@ -117,3 +117,7 @@ select distinct year from main;
 -- SQLBook: Code
 alter table unsold_realestate_year add foreign key (year)
 REFERENCES main(year);
+-- SQLBook: Code
+alter table unsold_house add foreign key (year)
+REFERENCES main(year);
+-- SQLBook: Code
