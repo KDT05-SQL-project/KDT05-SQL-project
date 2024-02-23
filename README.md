@@ -11,4 +11,3 @@
 <img width="866" alt="image" src="https://github.com/ParkHeeJin00/KDT-5_SQLproject_hj/assets/155441547/45e689ed-0d94-4cd5-8d99-5e6017f13aaa">
 
 
-![fall_season](https://github.com/ParkHeeJin00/KDT-5_SQLproject/assets/155441547/1b2e701f-3d69-4538-8080-7cce40ea0e1f)
